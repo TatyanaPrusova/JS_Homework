@@ -137,3 +137,84 @@ function div (a, b) {
     return a / b;
 }
 console.log (`Деление - ${div(6, 2)}`);
+
+// Урок 4.
+// Задание 1
+// Необходимо с помощью цикла for вывести следующие 11 строк в консоль:
+// 0 – это ноль
+// 1 – нечетное число
+// 2 – четное число
+// 3 – нечетное число
+// …
+// 10 – четное число
+
+let arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+for (let index = 0; index < arr.length; index++) {
+  if (index === 0) {
+    console.log (`${index} - это ноль`)
+  } 
+  else if (index % 2 === 0) {
+    console.log (`${index} - это четное число`)
+}
+  else {
+    console.log (`${index} - это нечетное число`)
+  }
+    
+}
+
+// Задание 2
+// Дан массив [1, 2, 3, 4, 5, 6, 7]
+// Сделайте из этого массива следующий [1, 2, 3, 6, 7]
+const arr = [1, 2, 3, 4, 5, 6, 7];
+arr.splice (3,2);
+console.log(arr);
+
+
+// Задание 3
+// Используя Math.random() вам необходимо генерировать цифры от 0 до 9, и создать массив состоящий из 5 таких элементов
+// 1. Рассчитать сумму элементов этого массива
+// 2. Найти минимальное число
+// 3. Найти есть ли в этом массиве число 3
+const length = 5;
+const min = 0;
+const max = 9;
+const numbers = [...Array(length)]; 
+for (let i = 0; i < numbers.length; i += 1) { 
+    numbers[i] = Math.round(Math.random() * max); 
+  }
+
+  const sum = numbers.reduce (function (x, y) {
+    return x + y;
+  }, 0);
+
+  const minnum = numbers => numbers.reduce ((x,y) => Math.min (x, y));
+
+  const elem = 3;
+  function contains (elem){
+    if (numbers.filter(i => (i === elem)).length) {
+        return true;
+    } else {
+        return false;
+    }
+  }
+
+console.log(`Массив ${numbers}`); 
+console.log(`Сумма элементов массива - ${sum}`)
+console.log (`Минимальное число в массиве - ${minnum(numbers)}`)
+console.log ((contains (elem) === true) ? 'Число 3 есть в массиве' : 'Числа 3 нет в массиве')
+
+
+// *Необязательное задание. *
+// Необходимо вывести горку в консоль (используя цикл for), как показано на рисунке, только у вашей горки должно быть 20 рядов, а не 5:
+// x
+// xx
+// xxx
+// xxxx
+// xxxxx
+for(let x = 0; x < 20; x++){
+    let str = "";
+    for(let y = 0; y <= x; y++){
+    str += "x";
+    }
+    console.log(str);
+    }
